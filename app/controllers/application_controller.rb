@@ -52,7 +52,7 @@ end
 def login(email)
   # check if a user with this email actually exists
   # if so, set the session
-  if user = User.find_by(:email => email) <=# This is called an "if-statement-assignment"
+  if user = User.find_by(:email => email) && user.authenticate(password) <=# This is called an "if-statement-assignment"
     session[:email] = user.email
   else
     redirect '/login'
