@@ -45,3 +45,20 @@ class ApplicationController < Sinatra::Base
   end
 
 end
+
+=begin 
+# This method is from 55:38 / 1:28:48 of this video: https://www.youtube.com/watch?time_continue=2&v=_S1s6R-_wYc
+
+def login(email)
+  # check if a user with this email actually exists 
+  # if so, set the session 
+  if user = User.find_by(:email => email) 
+    session[:email] = user.email 
+  else 
+    redirect '/login' 
+  end  
+end 
+
+
+
+=end 
