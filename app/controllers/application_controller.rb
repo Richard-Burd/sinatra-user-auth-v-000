@@ -36,12 +36,12 @@ class ApplicationController < Sinatra::Base
 =begin
 At 1:03:31 / 1:28:48 of this video: https://www.youtube.com/watch?time_continue=2&v=_S1s6R-_wYc
 ...there's code that looks like this:
-post '/sessions' do 
-  # login a user with this email 
+post '/sessions' do
+  # login a user with this email
   login(params[:email], params[:password])
   redirect '/posts'
 end
-=end 
+=end
 
   get '/sessions/logout' do
 
@@ -61,7 +61,8 @@ end
 def login(email)
   # check if a user with this email actually exists
   # if so, set the session
-  if user = User.find_by(:email => email) && user.authenticate(password) <=# This is called an "if-statement-assignment"
+  user = User.find_by(:email => email) 
+  if user && user.authenticate(password)
     session[:email] = user.email
   else
     redirect '/login'
