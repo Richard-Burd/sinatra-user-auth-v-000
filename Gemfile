@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'bcrypt' 
 
 group :test do
   gem 'launchy'
